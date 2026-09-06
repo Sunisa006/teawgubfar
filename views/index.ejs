@@ -1,0 +1,452 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= typeof title !== 'undefined' ? title : 'เที่ยวกับฟ้า - เว็บไซต์รวบรวมข้อมูลท่องเที่ยว' %></title>
+    <!-- Google Font: Prompt -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome ไอคอน -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <!-- เรียกใช้งาน Header -->
+    <% const activePage = 'home'; %>
+    <%- include('partials/header') %>
+
+    <main class="container my-5">
+        <!-- ส่วนค้นหา -->
+        <div class="row justify-content-center text-center mb-5 animate__animated animate__fadeIn">
+            <div class="col-lg-8">
+                <h1 class="fw-bold mb-4" style="color: #1e293b;">อยาก<span style="color: #f43f5e;">ไป</span>ที่ไหน?</h1>
+                <div class="input-group search-container p-2" style="max-width: 650px; margin: 0 auto;">
+                    <input type="text" class="form-control border-0 shadow-none px-4 bg-transparent" placeholder="ค้นหาสถานที่ท่องเที่ยว คาเฟ่ ร้านอาหาร ที่พัก">
+                    <button class="btn search-btn px-4 border-0 fw-semibold" type="button">
+                        <i class="fas fa-search me-1"></i> ค้นหา
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ส่วนแบนเนอร์แนะนำ -->
+        <div class="row justify-content-center mb-5 animate__animated animate__fadeInUp">
+            <div class="col-lg-9">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden position-relative">
+                    <img src="/images/Rectangle 11.jpg" class="card-img" alt="เขาค้อ ภูทับเบิก" style="height: 400px; object-fit: cover;">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end text-center p-4" style="background: linear-gradient(to top, rgba(15,23,42,0.7), transparent);">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ส่วนบทความไฮไลท์และข้อมูลท่องเที่ยว (ขยายพื้นหลังสีชมพูเต็มหน้าจอ) -->
+    <section class="highlight-section">
+        <div class="container">
+            <!-- บทความไฮไลท์ -->
+            <div class="text-center mb-4 animate__animated animate__fadeIn">
+                <i class="fas fa-map-marker-alt text-danger fs-4 mb-2"></i>
+                <h2 class="section-title">บทความไฮไลท์</h2>
+            </div>
+
+            <!-- บทความหลักด้านบน -->
+            <div class="row bg-white rounded-4 p-4 align-items-center shadow-sm mb-4 animate__animated animate__fadeInUp">
+                <div class="col-lg-6 mb-3 mb-lg-0">
+                    <img src="/images/Rectangle 12.png" alt="ถ่ายรูปแพะ บ้านท่าฤทธิ์" class="img-fluid rounded-4 w-100" style="height: 280px; object-fit: cover;">
+                </div>
+                <div class="col-lg-6 px-lg-4">
+                    <h3 class="fw-bold text-dark fs-3 mb-3">ถ่ายรูปแพะ บ้านท่าฤทธิ์ สระบุรี จุดชมวิวท้ายเขื่อนป่าสัก</h3>
+                    <p class="text-muted mb-4">สัมผัสทุ่งหญ้าสีเขียว ถ่ายรูปกับฝูงแพะน่ารัก ที่บ้านท่าฤทธิ์ สระบุรี จุดชมวิวท้ายเขื่อนป่าสักชลสิทธิ์</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="text-secondary small">ที่เที่ยว | 01/07/2026</span>
+                        <a href="#" class="btn btn-custom-peach shadow-sm text-decoration-none">อ่านต่อ</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- การ์ดบทความย่อย 4 คอลัมน์ -->
+            <div class="row g-4 mb-5">
+                <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp">
+                    <div class="article-card p-2">
+                        <img src="/images/Rectangle 13.png" class="card-img-top rounded-3" alt="วัดสวนแพร" style="height: 150px; object-fit: cover;">
+                        <div class="p-3">
+                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">15 วัดสวย ไหว้พระขอพรศักดิ์สิทธิ์ ชิลลัดชมสถาปัตยกรรมสุดวิจิตร</h6>
+                            <p class="text-muted small mb-3" style="font-size: 0.8rem;">ที่เที่ยว | 23/06/2026</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                    <div class="article-card p-2">
+                        <img src="/images/Rectangle 14.png" class="card-img-top rounded-3" alt="สุโขทัย" style="height: 150px; object-fit: cover;">
+                        <div class="p-3">
+                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">17 ที่เที่ยวสุโขทัย อัปเดตล่าสุด ทั้งวัด คาเฟ่ ธรรมชาติ วิถีชุมชน</h6>
+                            <p class="text-muted small mb-3" style="font-size: 0.8rem;">ที่เที่ยว | 21/06/2026</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="article-card p-2">
+                        <img src="/images/Rectangle 15.png" class="card-img-top rounded-3" alt="นครนายก" style="height: 150px; object-fit: cover;">
+                        <div class="p-3">
+                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">One Day Trip นครนายก ปราจีนบุรี 1 วัน รวม 7 พิกัดสุดปัง</h6>
+                            <p class="text-muted small mb-3" style="font-size: 0.8rem;">บทความไฮไลท์ | 17/06/2026</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                    <div class="article-card p-2">
+                        <img src="/images/Rectangle 16.png" class="card-img-top rounded-3" alt="จุดเช็คอินนครนายก" style="height: 150px; object-fit: cover;">
+                        <div class="p-3">
+                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">35 ที่เที่ยวนครนายก เช็คอิน ธรรมชาติ ฮีลใจใกล้กรุง ไปชิลล์กันสบาย</h6>
+                            <p class="text-muted small mb-3" style="font-size: 0.8rem;">ที่เที่ยว | 10/06/2026</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ปุ่มบทความทั้งหมด -->
+            <div class="text-center mb-5 animate__animated animate__fadeIn">
+                <a href="/page2" class="btn btn-custom-peach px-5 py-2 shadow-sm text-decoration-none" style="font-size: 1.05rem;">บทความทั้งหมด</a>
+            </div>
+
+            <!-- ส่วนข้อมูลท่องเที่ยว (แบ่งตามภูมิภาค) -->
+            <div class="text-center mt-5 mb-4 animate__animated animate__fadeIn">
+                <i class="fas fa-map text-danger fs-4 mb-2"></i>
+                <h2 class="section-title">ข้อมูลท่องเที่ยว</h2>
+            </div>
+
+            <!-- แถวที่ 1: 3 ภาคแรก -->
+            <div class="row g-4 justify-content-center mb-4">
+                <div class="col-md-4 animate__animated animate__fadeInUp">
+                    <div class="region-card position-relative overflow-hidden rounded-4 shadow-sm">
+                        <img src="/images/Rectangle 17.png" alt="ภาคเหนือ" class="w-100 d-block" style="height: 180px; object-fit: cover;">
+                        <a href="#" class="region-overlay text-decoration-none d-flex align-items-center justify-content-center">
+                            <h4 class="text-white fw-bold m-0 text-center">ภาคเหนือ</h4>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                    <div class="region-card position-relative overflow-hidden rounded-4 shadow-sm">
+                        <img src="/images/Rectangle 18.png" alt="ภาคกลาง" class="w-100 d-block" style="height: 180px; object-fit: cover;">
+                        <a href="#" class="region-overlay text-decoration-none d-flex align-items-center justify-content-center">
+                            <h4 class="text-white fw-bold m-0 text-center">ภาคกลาง</h4>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="region-card position-relative overflow-hidden rounded-4 shadow-sm">
+                        <img src="/images/Rectangle 19.png" alt="ภาคตะวันออกเฉียงเหนือ" class="w-100 d-block" style="height: 180px; object-fit: cover;">
+                        <a href="#" class="region-overlay text-decoration-none d-flex align-items-center justify-content-center">
+                            <h4 class="text-white fw-bold m-0 text-center px-2">ภาคตะวันออกเฉียงเหนือ</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- แถวที่ 2: 2 ภาคหลัง -->
+            <div class="row g-4 justify-content-center mb-5">
+                <div class="col-md-4 animate__animated animate__fadeInUp">
+                    <div class="region-card position-relative overflow-hidden rounded-4 shadow-sm">
+                        <img src="/images/Rectangle 20.png" alt="ภาคตะวันออก" class="w-100 d-block" style="height: 180px; object-fit: cover;">
+                        <a href="#" class="region-overlay text-decoration-none d-flex align-items-center justify-content-center">
+                            <h4 class="text-white fw-bold m-0 text-center">ภาคตะวันออก</h4>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                    <div class="region-card position-relative overflow-hidden rounded-4 shadow-sm">
+                        <img src="/images/Rectangle 21.png" alt="ภาคใต้" class="w-100 d-block" style="height: 180px; object-fit: cover;">
+                        <a href="#" class="region-overlay text-decoration-none d-flex align-items-center justify-content-center">
+                            <h4 class="text-white fw-bold m-0 text-center">ภาคใต้</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ส่วนตัวอย่างทริป -->
+            <div class="text-center mt-5 mb-4 animate__animated animate__fadeIn">
+                <i class="fas fa-map-marked-alt text-danger fs-4 mb-2"></i>
+                <h2 class="section-title">ตัวอย่างทริป</h2>
+            </div>
+
+            <!-- การ์ดตัวอย่างทริป 4 คอลัมน์ -->
+            <div class="row g-4 mb-5">
+                <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp">
+                    <div class="article-card p-2">
+                        <img src="/images/Rectangle 22.png" class="card-img-top rounded-3" alt="นครนายก" style="height: 150px; object-fit: cover;">
+                        <div class="p-3">
+                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">เที่ยวคนายก ปราจีนบุรี 1 วัน รวม 7 พิกัดฉบับอัปเดต</h6>
+                            <p class="text-muted small mb-0" style="font-size: 0.8rem;">ตัวอย่างทริป | 17/06/2026</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                    <div class="article-card p-2">
+                        <img src="/images/Rectangle 23.png" alt="พิมาย" class="card-img-top rounded-3" style="height: 150px; object-fit: cover;">
+                        <div class="p-3">
+                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">เที่ยวพิมาย 2 วัน 1 คืน เที่ยวโคราชสารประวัติศาสตร์ ของกินอร่อยฟิน</h6>
+                            <p class="text-muted small mb-0" style="font-size: 0.8rem;">ตัวอย่างทริป | 13/05/2026</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="article-card p-2">
+                        <img src="/images/Rectangle 24.png" alt="สวรรคโลก" class="card-img-top rounded-3" style="height: 150px; object-fit: cover;">
+                        <div class="p-3">
+                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">เที่ยวสวรรคโลก เมืองเก่าที่เต็มไปด้วยเสน่ห์แบบคลาสสิค</h6>
+                            <p class="text-muted small mb-0" style="font-size: 0.8rem;">ตัวอย่างทริป | 17/05/2026</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                    <div class="article-card p-2">
+                        <img src="/images/Rectangle 25.png" alt="ระนอง" class="card-img-top rounded-3" style="height: 150px; object-fit: cover;">
+                        <div class="p-3">
+                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">แจกแพลนเที่ยวระนอง 2 วัน 1 คืน ทะเล คาเฟ่ พิกัดฮิต</h6>
+                            <p class="text-muted small mb-0" style="font-size: 0.8rem;">ตัวอย่างทริป | 16/06/2026</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ปุ่มตัวอย่างทริปทั้งหมด -->
+            <div class="text-center mb-5 animate__animated animate__fadeIn">
+                <a href="/page7" class="btn btn-custom-peach px-5 py-2 shadow-sm text-decoration-none" style="font-size: 1.05rem;">ตัวอย่างทริปทั้งหมด</a>
+            </div>
+
+            <!-- ส่วนคาเฟ่ ร้านอาหาร -->
+            <div class="text-center mt-5 mb-4 animate__animated animate__fadeIn">
+                <i class="fas fa-utensils text-danger fs-4 mb-2"></i>
+                <h2 class="section-title">คาเฟ่ ร้านอาหาร</h2>
+            </div>
+
+            <!-- การ์ดคาเฟ่ ร้านอาหาร 4 คอลัมน์ -->
+            <div class="row g-4 mb-5">
+                <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp">
+                    <div class="article-card p-2">
+                        <img src="/images/Rectangle 26.png" class="card-img-top rounded-3" alt="สวนบ้านฉัน" style="height: 150px; object-fit: cover;">
+                        <div class="p-3">
+                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">สวนบ้านฉัน หัวใจบ้านนอก คาเฟ่พัทลุง บรรยากาศโฮมy อาหารอร่อย</h6>
+                            <p class="text-muted small mb-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 02/07/2026</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                    <div class="article-card p-2">
+                        <img src="/images/Rectangle 27.png" class="card-img-top rounded-3" alt="ชะพู คาเฟ่" style="height: 150px; object-fit: cover;">
+                        <div class="p-3">
+                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">ชะพู คาเฟ่ Choplu Cafe หัวหินติดทะเล ฟิลเมืองนอก มุมถ่ายรูปเพียบ</h6>
+                            <p class="text-muted small mb-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 31/03/2026</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="article-card p-2">
+                        <img src="/images/Rectangle 28.png" class="card-img-top rounded-3" alt="12 คาเฟ่บางแสน" style="height: 150px; object-fit: cover;">
+                        <div class="p-3">
+                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">12 คาเฟ่บางแสน ทั่งโซนติดทะเล เขาสามมุข ถ่ายรูปสวยปัง อัปเดต 2026</h6>
+                            <p class="text-muted small mb-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 04/03/2026</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                    <div class="article-card p-2">
+                        <img src="/images/Rectangle 29.png" class="card-img-top rounded-3" alt="บ้านต้นไม้คีรีวง" style="height: 150px; object-fit: cover;">
+                        <div class="p-3">
+                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">บ้านต้นไม้คีรีวง คาเฟ่ต้นไม้ดีไซน์เก๋ริมห้วย ขุดเช็คอินสุดชิคแห่งปะทิว ชุมพร</h6>
+                            <p class="text-muted small mb-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 26/02/2026</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ปุ่มคาเฟ่ ร้านอาหารทั้งหมด -->
+            <div class="text-center mb-5 animate__animated animate__fadeIn">
+                <a href="/page9" class="btn btn-custom-peach px-5 py-2 shadow-sm text-decoration-none" style="font-size: 1.05rem;">คาเฟ่ ร้านอาหาร ทั้งหมด</a>
+            </div>
+
+            <!-- ส่วนแนะนำที่พัก -->
+            <div class="text-center mt-5 mb-4 animate__animated animate__fadeIn">
+                <i class="fas fa-suitcase text-danger fs-4 mb-2"></i>
+                <h2 class="section-title">แนะนำที่พัก</h2>
+            </div>
+
+            <!-- การ์ดแนะนำที่พัก 4 คอลัมน์ -->
+            <div class="row g-4 mb-5">
+                <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp">
+                    <div class="article-card p-2">
+                        <img src="/images/Rectangle 30.png" class="card-img-top rounded-3" alt="Have a good rest" style="height: 150px; object-fit: cover;">
+                        <div class="p-3">
+                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">Have a good rest นครนายก ที่พักส่วนตัว มุมเช็คอินถ่ายรูปวิวเขา ท่ากลางธรรมชาติ</h6>
+                            <p class="text-muted small mb-0" style="font-size: 0.8rem;">แนะนำที่พัก | 02/07/2026</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                    <div class="article-card p-2">
+                        <img src="/images/Rectangle 31.png" class="card-img-top rounded-3" alt="ราชพฤกษ์ชมคลื่น" style="height: 150px; object-fit: cover;">
+                        <div class="p-3">
+                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">ราชพฤกษ์ชมคลื่น หัวหิน ที่พักติดทะเล ราคาหลักพัน คุ้มเกินราคา</h6>
+                            <p class="text-muted small mb-0" style="font-size: 0.8rem;">แนะนำที่พัก | 26/02/2026</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="article-card p-2">
+                        <img src="/images/Rectangle 32.png" class="card-img-top rounded-3" alt="เชียงดาวู๊ดวิว" style="height: 150px; object-fit: cover;">
+                        <div class="p-3">
+                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">เชียงดาววูดวิว ที่พักเชียงดาวหลักร้อย วิวดอยหลวงเชียงดาวเต็มตา ฟินเกินราคา</h6>
+                            <p class="text-muted small mb-0" style="font-size: 0.8rem;">แนะนำที่พัก | 08/10/2025</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                    <div class="article-card p-2">
+                        <img src="/images/Rectangle 33.png" class="card-img-top rounded-3" alt="ลานอาต่องแคมป์ปิ" style="height: 150px; object-fit: cover;">
+                        <div class="p-3">
+                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">ลานอาต่องแคมป์ปิ คอยช้างที่พักบ้านไม้ วิวภูเขาและทะเล หมอกยามเช้า</h6>
+                            <p class="text-muted small mb-0" style="font-size: 0.8rem;">แนะนำที่พัก | 29/09/2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ปุ่มแนะนำที่พักทั้งหมด -->
+            <div class="text-center mb-5 animate__animated animate__fadeIn">
+                <a href="/page4" class="btn btn-custom-peach px-5 py-2 shadow-sm text-decoration-none" style="font-size: 1.05rem;">แนะนำ ที่พัก ทั้งหมด</a>
+            </div>
+
+            <!-- ส่วนวิดีโอแนะนำ -->
+            <div class="text-center mt-5 mb-4 animate__animated animate__fadeIn">
+                <i class="fas fa-play-circle text-danger fs-4 mb-2"></i>
+                <h2 class="section-title">วิดีโอแนะนำ</h2>
+            </div>
+
+            <!-- วิดีโอไฮไลท์หลักด้านบน -->
+            <div class="row justify-content-center mb-4 animate__animated animate__fadeInUp">
+                <div class="col-lg-10">
+                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden position-relative">
+                        <img src="/images/Rectangle 11.jpg" class="card-img" alt="เขาค้อ ภูทับเบิก" style="height: 380px; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- การ์ดวิดีโอแนะนำย่อย 4 คอลัมน์ -->
+            <div class="row g-4 mb-5">
+                <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp">
+                    <div class="article-card p-2">
+                        <img src="/images/Rectangle 34.png" class="card-img-top rounded-3" alt="นครสวรรค์" style="height: 150px; object-fit: cover;">
+                        <div class="p-3">
+                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">นครสวรรค์ รีวิวเที่ยว 2 วัน 1 คืน ทุ่งดอกไม้ 3 แห่ง</h6>
+                            <p class="text-muted small mb-0" style="font-size: 0.8rem;">วิดีโอแนะนำ | 08/12/2024</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                    <div class="article-card p-2">
+                        <img src="/images/Rectangle 35.png" class="card-img-top rounded-3" alt="สวนป่าดอยบ่อหลวง" style="height: 150px; object-fit: cover;">
+                        <div class="p-3">
+                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">สวนป่าดอยบ่อหลวง พักโซนใหม่ เต็นท์แคมป์ปิ้ง</h6>
+                            <p class="text-muted small mb-0" style="font-size: 0.8rem;">วิดีโอแนะนำ | 29/11/2024</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="article-card p-2">
+                        <img src="/images/Rectangle 36.png" class="card-img-top rounded-3" alt="ทุ่งดอกบัวตอง ดอยแม่อุคอ" style="height: 150px; object-fit: cover;">
+                        <div class="p-3">
+                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">ทุ่งดอกบัวตองดอยแม่อุคอ แม่ฮ่องสอน</h6>
+                            <p class="text-muted small mb-0" style="font-size: 0.8rem;">วิดีโอแนะนำ | 29/11/2024</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                    <div class="article-card p-2">
+                        <img src="/images/Rectangle 37.png" class="card-img-top rounded-3" alt="ดอยม่อนเงาะ" style="height: 150px; object-fit: cover;">
+                        <div class="p-3">
+                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">ดอยม่อนเงาะ 3 วัน 2 คืน ทะเลหมอกสุดว้าว</h6>
+                            <p class="text-muted small mb-0" style="font-size: 0.8rem;">วิดีโอแนะนำ | 29/09/2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ปุ่มวิดีโอทั้งหมด -->
+            <div class="text-center pb-2 animate__animated animate__fadeIn">
+                <a href="#" class="btn btn-custom-peach px-5 py-2 shadow-sm text-decoration-none" style="font-size: 1.05rem;">วิดีโอทั้งหมด</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Footer Section -->
+<footer style="background-color: #e3f2fd; padding: 50px 0 0 0; font-family: 'Prompt', sans-serif;">
+    <div class="container mb-5">
+        <div class="row g-4 justify-content-between">
+            <!-- คอลัมน์ที่ 1: เกี่ยวกับเราและโซเชียลมีเดีย -->
+            <div class="col-lg-4 col-md-6">
+                <p class="text-dark mb-3" style="font-size: 0.95rem; line-height: 1.6;">
+                    เที่ยวกับฟ้า เว็บไซต์รวบรวมข้อมูลท่องเที่ยว<br>
+                    คาเฟ่ ร้านอาหาร ที่พัก
+                </p>
+                <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #0d6efd;">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #000;">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #d63384;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #212529;">
+                        <i class="fa-solid fa-xmark"></i>
+                    </a>
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #dc3545;">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- คอลัมน์ที่ 2: เมนูลัด -->
+            <div class="col-lg-3 col-md-6">
+                <ul class="list-unstyled d-flex flex-column gap-2 m-0" style="font-size: 0.95rem;">
+                    <li><a href="/" class="text-dark text-decoration-none">หน้าแรก</a></li>
+                    <li><a href="/page2" class="text-dark text-decoration-none">ข้อมูลท่องเที่ยว</a></li>
+                    <li><a href="/page3" class="text-dark text-decoration-none">ที่เที่ยว</a></li>
+                    <li><a href="/page9" class="text-dark text-decoration-none">คาเฟ่ ร้านอาหาร</a></li>
+                    <li><a href="/page4" class="text-dark text-decoration-none">ที่พักทั่วไทย</a></li>
+                </ul>
+            </div>
+
+            <!-- คอลัมน์ที่ 3: ติดต่อโฆษณา -->
+            <div class="col-lg-4 col-md-6">
+                <p class="text-dark fw-semibold mb-2" style="font-size: 0.95rem;">ติดต่อโฆษณา :</p>
+                <p class="text-dark m-0" style="font-size: 0.95rem;">
+                    <i class="far fa-envelope me-2"></i> E - mail : teawkubfar.com@gmail.com
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- แถบแจ้งเตือนคุกกี้ด้านล่างสุด -->
+    <div style="background-color: #f8d7da; padding: 15px 0; border-top: 1px dashed #f5c2c7;">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 text-center text-md-start">
+            <p class="text-dark m-0" style="font-size: 0.85rem;">
+                teawkubfar.com ใช้คุกกี้บนเว็บไซต์นี้เพื่อเพิ่มประสิทธิภาพการใช้งานของท่าน โปรดตกลงใช้งานคุกกี้เพื่อใช้งานเว็บไซต์ต่อไป
+            </p>
+            <button class="btn btn-light btn-sm px-4 rounded-pill shadow-sm text-danger fw-semibold" style="font-size: 0.85rem;">ยอมรับ</button>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

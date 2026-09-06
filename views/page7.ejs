@@ -1,0 +1,336 @@
+<!-- views/page7.ejs -->
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= title %></title>
+
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+
+<style>
+body {
+    font-family: 'Prompt', sans-serif;
+    background-color: #f8d7da;
+    margin: 0;
+}
+
+.search-box-container {
+    background-color: #ffffff;
+    border-radius: 50px;
+    padding: 8px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.attraction-card {
+    background: transparent;
+    border: none;
+    transition: transform 0.2s;
+}
+
+.attraction-card:hover {
+    transform: translateY(-5px);
+}
+
+.attraction-img {
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* สไตล์สำหรับปุ่ม Pagination */
+.pagination-dots {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background-color: #f43f5e;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.pagination-dots.inactive {
+    background-color: #ffffff;
+    color: #475569;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.pagination-dots.inactive:hover {
+    background-color: #e2e8f0;
+    color: #1e293b;
+}
+</style>
+</head>
+<body>
+
+<%- include('partials/header', { activePage: 'trips' }) %>
+
+<section class="container text-center my-5">
+<h1 class="fw-bold mb-4" style="font-size: 2.5rem; color: #1e293b;">
+อยาก<span style="color: #f43f5e;">ไป</span>ที่ไหน?
+</h1>
+
+<div class="search-box-container d-flex align-items-center mb-5">
+<input type="text" class="form-control border-0 shadow-none bg-transparent ps-2" placeholder="ค้นหาสถานที่ท่องเที่ยว คาเฟ่ ร้านอาหาร ที่พัก" style="font-size: 0.95rem;">
+<i class="fas fa-search text-muted px-2"></i>
+</div>
+
+<div class="d-flex align-items-center justify-content-center my-4">
+<hr class="flex-grow-1 m-0" style="border-top: 1px solid #d4a3a6;">
+<h2 class="fw-bold px-4 m-0" style="color: #475569; font-size: 1.8rem;">ตัวอย่าง<span style="color: #f43f5e;">ทริป</span></h2>
+<hr class="flex-grow-1 m-0" style="border-top: 1px solid #d4a3a6;">
+</div>
+</section> 
+
+<main class="container mb-5">
+    <div class="row g-4">
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 135.png" alt="เที่ยวนครนายก ปราจีนบุรี" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เที่ยวนครนายก ปราจีนบุรี 1 วัน รวม 7 พิกัดฉบับอัปเดต</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 17/06/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 136.png" alt="เที่ยวพิมาย 2 วัน 1 คืน" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เที่ยวพิมาย 2 วัน 1 คืน เที่ยวโคราชประวัติศาสตร์ ชมมุมสุดอันซีน</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 18/05/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 137.png" alt="เที่ยวสวรรคโลก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เที่ยวสวรรคโลก เมืองเก่าที่เต็มไปด้วยเสน่ห์แบบคลาสสิค</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 17/05/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 138.png" alt="แจกแพลนเที่ยวระยอง 2 วัน 1 คืน" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">แจกแพลนเที่ยวระยอง 2 วัน 1 คืน ทะเล คาเฟ่ พิกัดฮิต</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 07/05/2026</p>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 139.png" alt="เที่ยวราชบุรี 1 วัน" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เที่ยวราชบุรี 1 วัน งบประหยัดลายอาร์ตธรรมชาติ เช็คอินครบ</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 15/04/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 140.png" alt="เที่ยวเกาะเสม็ด 3 วัน 2 คืน" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เที่ยวเกาะเสม็ด 3 วัน 2 คืน อัปเดตพิกัดพักผ่อนสุดชิล ใกล้กรุงเทพ</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 13/04/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 141.png" alt="เที่ยวประจวบ 3 วัน 2 คืน โซนปราณบุรี สามร้อยยอด" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เที่ยวประจวบ 3 วัน 2 คืน โซนปราณบุรี สามร้อยยอด</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 18/03/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 142.png" alt="เที่ยวชะอำ หัวหิน 2 วัน 1 คืน" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เที่ยวชะอำ หัวหิน 2 วัน 1 คืน แจกแพลนเที่ยวคาเฟ่สวย ถ่ายรูปปัง</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 04/03/2026</p>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 143.png" alt="เที่ยวอุดรธานี 1 วัน" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เที่ยวอุดรธานี 1 วัน ไปไหนได้บ้างรวมพิกัดกินเที่ยวดู ฉบับอัปเดต 2026</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 24/02/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 144.png" alt="เที่ยวหนองแค สระบุรี 2026" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เที่ยวหนองแค สระบุรี 2026 พิกัด 3 คาเฟ่ถ่ายรูปสวยพร้อมไหว้พระวัดดัง</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 27/01/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 145.png" alt="นครพนม 2 วัน 1 คืน" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เที่ยวนครพนม 2 วัน 1 คืน สุขให้สุด อิ่มบุญชิลริมโขง</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 23/11/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 146.png" alt="ฮอด-ลี้" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">ทริปพักผ่อน เที่ยวฮอด - ลี้ 3 วัน 2 คืน ชาร์จพลังแบบเต็มๆ</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 27/09/2025</p>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 147.png" alt="เที่ยวเชียงดาว 3 วัน 2 คืน" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เที่ยวเชียงดาว 3 วัน 2 คืน ชุ่มฉ่ำหน้าฝน เส้นทางบ้านนาเลาใหม่ เมืองคอง</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 19/08/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 148.png" alt="เที่ยวลำพูน 1 วัน" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เที่ยวลำพูน 1 วัน เมืองใกล้เชียงใหม่ ชมวิวไหว้พระ จิบกาแฟ</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 18/08/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 149.png" alt="เที่ยวอยุธยา 1 วัน ไม่เน้นวัด" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เที่ยวอยุธยา 1 วัน ไม่เน้นวัดฉบับคนชอบถ่ายรูป ชอบกิน</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 11/08/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 150.png" alt="เที่ยวปราจีนบุรี 2 วัน 1 คืน" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เที่ยวปราจีนบุรี 2 วัน 1 คืน เส้นทางสายชิล วัดสวย คาเฟ่เก๋ พักริมทะเลสาบสุดชิค</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 06/08/2025</p>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 151.png" alt="เที่ยวพิษณุโลก 1 วัน" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เที่ยวพิษณุโลก 1 วัน เช็คอิน 7 จุดในเมือง ทั้งวัด คาเฟ่ ร้านเด็ด ครบจบวันเดียว</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 06/08/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 152.png" alt="เที่ยวเชียงราย 1 วัน ในตัวเมือง" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เที่ยวเชียงราย 1 วัน ในตัวเมือง เที่ยววัดสวย แวะคาเฟ่ชิค</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 24/06/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 153.png" alt="เที่ยวเขาค้อ ภูทับเบิก 3 วัน 2 คืน" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เที่ยวเขาค้อ ภูทับเบิก ปักหมุด 12 พิกัดเที่ยวหน้าฝนสุดฉ่ำ</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 16/05/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 154.png" alt="เที่ยวอุทัยธานี 2 วัน 1 คืน" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เที่ยวอุทัยธานี 2 วัน 1 คืน หน้าฝน สูดอากาศบริสุทธิ์สดชื่น</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 16/05/2025</p>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 155.png" alt="เที่ยวทะเลสัตหีบ 2 วัน 1 คืน" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เที่ยวทะเลสัตหีบ 2 วัน 1 คืน สุดชิล หาดสวยทรายขาว น้ำใส</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 03/05/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 156.png" alt="เที่ยวนครนายก หน้าฝน" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เที่ยวนครนายกหน้าฝน 5 จุด เช็คอิน แจกแพลนฉ่ำ รับความสดชื่น</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 22/04/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 157.png" alt="เกาะสีชัง One Day Trip" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เกาะสีชัง One Day Trip เที่ยวครบจบในวันเดียว ประหยัดเวลา ประหยัดงบ</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 29/03/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 158.png" alt="เที่ยวสิงห์บุรี 1 วัน" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Trip'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เที่ยวสิงห์บุรี 1 วัน เส้นทางประวัติศาสตร์ เที่ยวคุ้ม งบหลักร้อยเอาอยู่</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่พัก | 17/03/2025</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center gap-2 mt-5">
+        <a href="/page7" class="pagination-dots">1</a>
+        <a href="/page8" class="pagination-dots inactive">2</a>
+    </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<footer style="background-color: #e3f2fd; padding: 50px 0 0 0; font-family: 'Prompt', sans-serif;">
+    <div class="container mb-5">
+        <div class="row g-4 justify-content-between">
+            <div class="col-lg-4 col-md-6">
+                <p class="text-dark mb-3" style="font-size: 0.95rem; line-height: 1.6;">
+                    เที่ยวกับฟ้า เว็บไซต์รวบรวมข้อมูลท่องเที่ยว<br>
+                    คาเฟ่ ร้านอาหาร ที่พัก
+                </p>
+                <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #0d6efd;">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #000;">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #d63384;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #212529;">
+                        <i class="fa-solid fa-xmark"></i>
+                    </a>
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #dc3545;">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <ul class="list-unstyled d-flex flex-column gap-2 m-0" style="font-size: 0.95rem;">
+                    <li><a href="/" class="text-dark text-decoration-none">หน้าแรก</a></li>
+                    <li><a href="/page2" class="text-dark text-decoration-none">ข้อมูลท่องเที่ยว</a></li>
+                    <li><a href="/page3" class="text-dark text-decoration-none">ที่เที่ยว</a></li>
+                    <li><a href="/page7" class="text-dark text-decoration-none">ตัวอย่างทริป</a></li>
+                    <li><a href="/page9" class="text-dark text-decoration-none">คาเฟ่ ร้านอาหาร</a></li>
+                    <li><a href="/hotels" class="text-dark text-decoration-none">ที่พักทั่วไทย</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <p class="text-dark fw-semibold mb-2" style="font-size: 0.95rem;">ติดต่อโฆษณา :</p>
+                <p class="text-dark m-0" style="font-size: 0.95rem;">
+                    <i class="far fa-envelope me-2"></i> E - mail : teawkubfar.com@gmail.com
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div style="background-color: #f8d7da; padding: 15px 0; border-top: 1px dashed #f5c2c7;">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 text-center text-md-start">
+            <p class="text-dark m-0" style="font-size: 0.85rem;">
+                teawkubfar.com ใช้คุกกี้บนเว็บไซต์นี้เพื่อเพิ่มประสิทธิภาพการใช้งานของท่าน โปรดตกลงใช้งานคุกกี้เพื่อใช้งานเว็บไซต์ต่อไป
+            </p>
+            <button class="btn btn-light btn-sm px-4 rounded-pill shadow-sm text-danger fw-semibold" style="font-size: 0.85rem;">ยอมรับ</button>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

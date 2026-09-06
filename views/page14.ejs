@@ -1,0 +1,298 @@
+<!-- views/page13.ejs -->
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+
+    <!-- Google Font: Prompt -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #f8d7da;
+            margin: 0;
+        }
+
+        .search-box-container {
+            background-color: #ffffff;
+            border-radius: 50px;
+            padding: 8px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .attraction-card {
+            background: transparent;
+            border: none;
+            transition: transform 0.2s;
+        }
+
+        .attraction-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .attraction-img {
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* สไตล์สำหรับปุ่ม Pagination */
+        .pagination-dots {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            background-color: #f43f5e;
+            color: #ffffff;
+            font-weight: 600;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .pagination-dots.inactive {
+            background-color: #ffffff;
+            color: #475569;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .pagination-dots.inactive:hover {
+            background-color: #e2e8f0;
+            color: #1e293b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ดึง Header พร้อมปรับ activePage เป็นที่พัก -->
+<%- include('partials/header', { activePage: 'page13' }) %>
+
+    <!-- ส่วนหัวข้อหลักและช่องค้นหา -->
+    <section class="container text-center my-5">
+        <h1 class="fw-bold mb-4" style="font-size: 2.5rem; color: #1e293b;">
+            อยาก<span style="color: #f43f5e;">ไป</span>ที่ไหน?
+        </h1>
+
+        <div class="search-box-container d-flex align-items-center mb-5">
+            <input type="text" class="form-control border-0 shadow-none bg-transparent ps-2" placeholder="ค้นหาสถานที่ท่องเที่ยว คาเฟ่ ร้านอาหาร ที่พัก" style="font-size: 0.95rem;">
+            <i class="fas fa-search text-muted px-2"></i>
+        </div>
+
+        <div class="d-flex align-items-center justify-content-center my-4">
+            <hr class="flex-grow-1 m-0" style="border-top: 1px solid #d4a3a6;">
+            <h2 class="fw-bold px-4 m-0" style="color: #475569; font-size: 1.8rem;">แนะนำ<span style="color: #f43f5e;">ที่พัก</span> (หน้า2)</h2>
+            <hr class="flex-grow-1 m-0" style="border-top: 1px solid #d4a3a6;">
+        </div>
+    </section> 
+
+    <!-- ส่วนรายการที่พัก 24 การ์ด -->
+    <main class="container mb-5">
+        <div class="row g-4">
+<!-- แถวที่ 1 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 304.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">แมงโก้ วัลเล่ย์ พักกระท่อมน้อยริมเนินเขา สัมผัสธรรมชาติเขาค้อเต็มร้อย</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 26/08/2024</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 305.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">ใจกลางหมอก ภูทับเบิก พักบ้านกระจก วิวทะเลหมอกสุดฟิน</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 23/08/2024</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 306.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">ปักหมุด 12 ที่พักไทรโยคสุดฟิน เติมความสุขริมน้ำแคว</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 07/08/2024</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 307.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">14 ที่พักบางแสนใกล้ชายหาด ที่พักสวย พักสบาย</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 06/08/2024</p>
+                </div>
+            </div>
+
+            <!-- แถวที่ 2 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 308.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">ทุ่งุ้งเฮ้าส์ ลับแล ที่พักหลักร้อย ตรงข้ามพระธาตุทุ่งยั้ง</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 16/06/2024</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 309.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">13 ที่พักนครศรีธรรมราช พักสบาย ใกล้สนามบิน ราคาไม่แพง</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 22/05/2024</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 310.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">9 ที่พักบ้านกรูด สัมผัสกลิ่นอายทะเล ในราคาสบายกระเป๋า</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 21/05/2024</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 311.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">15 ที่พักภูเก็ตติดทะเล สัมผัสประสบการณ์สุดเอ็กซ์คลูซีฟ วิวทะเลตระการตา</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 02/04/2024</p>
+                </div>
+            </div>
+
+            <!-- แถวที่ 3 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 312.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">10 ที่พักบางแสนหลักร้อย ราคาถูก ใกล้ทะเล กำแบงค์พัน 1 ใบ มีทอน</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 25/03/2024</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 313.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เสม็ดงาม โฮมสเตย์ ที่พักมินิมอล วิวป่าโกงกาง จัดเต็มอาหารทะเล</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 25/03/2024</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 314.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">20 ที่พักสัตหีบ วิวทะเล หลากสไตล์ ครบทุกความฟิน</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 05/02/2024</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 315.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">15 ที่พักระนองติดทะเล พักสุดชิลในวันหยุด</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 05/02/2024</p>
+                </div>
+            </div>
+
+<!-- แถวที่ 4 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 316.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">ลิงเขาแคมป์ปิ้งวิว ม่อนเงาะ วิวสวย มีอ่างน้ำชมหมอกสุดปัง</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 03/02/2024</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 317.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">จูเสียะแคมป์ ม่อนเงาะ ที่พักวิวเขา ชมหมอกสวยจากหน้าบ้าน</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 01/02/2024</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 318.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">20 ที่พักเชียงใหม่ ดีไซน์สวน ราคาไม่แพง</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 01/02/2024</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 319.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">โรงแรมชีวาวโฮง ที่พักนครพนมติดริมโขง วิวภูเขาเหมือนภาพวาด</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 03/01/2024</p>
+                </div>
+            </div>
+
+            <!-- แถวที่ 5 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 320.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">12 ที่พักนครพนม นอนชิลริมโขง ใกล้ลานพญาศรีสัตตนาคราช</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 03/01/2024</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 321.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">3039 นาดี เบสแคมป์ & 3039 นาดี สเตย์ยื่น ที่พักร้านอาหารใกล้ถ้ำนาคี</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 20/12/2023</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 322.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">ลาคำวัน โฮมสเตย์ ที่พักบ้านไขตาก วิวสวย เห็นทะเลหมอก</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 07/12/2023</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 323.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">ภูสายหมอก ที่พักม่อนหมอกตะวัน วิวดี หมอกปัง</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 01/12/2023</p>
+                </div>
+            </div>
+
+            <!-- แถวที่ 6 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 324.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">At the mountain ที่พักทุบป่าคา สไตล์มินิมอล วิวภูเขา</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 02/10/2023</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 325.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">ดอยเคียงเดือน แพร์ พักบ้านไม้แสนอบอุ่น เตียงเขาป่าเขียว</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 13/09/2023</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 326.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">ณ บ้านกลางดอย บ้านพักส่วนตัว สไตล์ญี่ปุ่น ริมเขาบนดอยช้าง</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 04/09/2023</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="attraction-card">
+                    <img src="/images/Rectangle 327.png" alt="ที่พัก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Hotel'">
+                    <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เดียงนา ฟาร์มสเตย์ เมืองคอง ที่พักหลักร้อย ชมวิวทุ่งนากว้าง</h6>
+                    <p class="text-muted m-0" style="font-size: 0.8rem;">แนะนำที่พัก | 02/09/2023</p>
+                </div>
+            </div>
+
+        <!-- ปุ่มเปลี่ยนหน้า Pagination (13-16) -->
+        <div class="d-flex justify-content-center align-items-center gap-2 mt-5">
+            <a href="/page13" class="pagination-dots inactive">1</a>
+            <a href="/page14" class="pagination-dots ">2</a>
+            <a href="/page15" class="pagination-dots inactive">3</a>
+            <a href="/page16" class="pagination-dots inactive">4</a>
+        </div>
+    </main>
+
+    <!-- ดึง Footer Partial ตัวเดียวกัน -->
+    <%- include('partials/footer') %>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

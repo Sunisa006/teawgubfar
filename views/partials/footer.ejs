@@ -1,0 +1,60 @@
+<!-- views/partials/footer.ejs -->
+<footer style="background-color: #e3f2fd; padding: 50px 0 0 0; font-family: 'Prompt', sans-serif;">
+    <div class="container mb-5">
+        <div class="row g-4 justify-content-between">
+            <!-- คอลัมน์ที่ 1: เกี่ยวกับเราและโซเชียลมีเดีย -->
+            <div class="col-lg-4 col-md-6">
+                <p class="text-dark mb-3" style="font-size: 0.95rem; line-height: 1.6;">
+                    เที่ยวกับฟ้า เว็บไซต์รวบรวมข้อมูลท่องเที่ยว<br>
+                    คาเฟ่ ร้านอาหาร ที่พัก
+                </p>
+                <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #0d6efd;">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #000;">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #d63384;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #212529;">
+                        <i class="fa-solid fa-xmark"></i>
+                    </a>
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #dc3545;">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- คอลัมน์ที่ 2: เมนูลัด (เชื่อมโยงลิงก์ให้ตรงกับ Router) -->
+            <div class="col-lg-3 col-md-6">
+                <ul class="list-unstyled d-flex flex-column gap-2 m-0" style="font-size: 0.95rem;">
+                    <li><a href="/" class="text-dark text-decoration-none">หน้าแรก</a></li>
+                    <li><a href="/page2" class="text-dark text-decoration-none">ข้อมูลท่องเที่ยว</a></li>
+                    <li><a href="/page3" class="text-dark text-decoration-none">ที่เที่ยว</a></li>
+                    <li><a href="/page9" class="text-dark text-decoration-none">คาเฟ่ ร้านอาหาร</a></li>
+                    <li><a href="/page4" class="text-dark text-decoration-none">ที่พักทั่วไทย</a></li>
+                </ul>
+            </div>
+
+            <!-- คอลัมน์ที่ 3: ติดต่อโฆษณา -->
+            <div class="col-lg-4 col-md-6">
+                <p class="text-dark fw-semibold mb-2" style="font-size: 0.95rem;">ติดต่อโฆษณา :</p>
+                <p class="text-dark m-0" style="font-size: 0.95rem;">
+                    <i class="far fa-envelope me-2"></i> E - mail : teawkubfar.com@gmail.com
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- แถบแจ้งเตือนคุกกี้ด้านล่างสุด -->
+    <div style="background-color: #f8d7da; padding: 15px 0; border-top: 1px dashed #f5c2c7;">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 text-center text-md-start">
+            <p class="text-dark m-0" style="font-size: 0.85rem;">
+                teawkubfar.com ใช้คุกกี้บนเว็บไซต์นี้เพื่อเพิ่มประสิทธิภาพการใช้งานของท่าน โปรดตกลงใช้งานคุกกี้เพื่อใช้งานเว็บไซต์ต่อไป
+            </p>
+            <button class="btn btn-light btn-sm px-4 rounded-pill shadow-sm text-danger fw-semibold" style="font-size: 0.85rem;">ยอมรับ</button>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,400 @@
+<!-- views/page3.ejs -->
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <!-- Google Font: Prompt -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome ไอคอน -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #f8d7da; /* พื้นหลังสีชมพูพีชอ่อนทั้งหน้าตามภาพตัวอย่าง */
+            margin: 0;
+        }
+        /* แถบสีชมพูส่วน Header (สไตล์เดียวกับหน้าแรก) */
+        .header-peach-bar {
+            background-color: #f8d7da;
+            padding: 15px 0;
+            border-bottom: 1px solid #f5c2c7;
+        }
+        /* ช่องค้นหา */
+        .search-box-container {
+            background-color: #ffffff;
+            border-radius: 50px;
+            padding: 8px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        /* สไตล์ปุ่มเมนู */
+        .nav-pill-custom {
+            background-color: #e2e8f0;
+            color: #475569;
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .nav-pill-custom.active {
+            background-color: #f43f5e;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        .nav-pill-custom:hover {
+            background-color: #cbd5e1;
+            color: #1e293b;
+        }
+        /* การ์ดบทความ/สถานที่ท่องเที่ยว */
+        .attraction-card {
+            background: transparent;
+            border: none;
+            transition: transform 0.2s;
+        }
+        .attraction-card:hover {
+            transform: translateY(-5px);
+        }
+        .attraction-img {
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        /* สไตล์ปุ่มเปลี่ยนหน้า (Pagination) */
+        .pagination-dots {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            background-color: #f43f5e;
+            color: #ffffff;
+            font-weight: 600;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+        }
+        .pagination-dots.inactive {
+            background-color: #ffffff;
+            color: #64748b;
+            border: 1px solid #cbd5e1;
+        }
+        .pagination-dots:hover {
+            opacity: 0.85;
+            color: #ffffff;
+        }
+        .pagination-dots.inactive:hover {
+            background-color: #f1f5f9;
+            color: #1e293b;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ส่วน Header ด้านบนสุด (แบบหน้าแรก) -->
+<header class="pt-4 pb-2">
+    <div class="header-peach-bar">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+            <!-- โลโก้เว็บไซต์ -->
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <img src="/images/logo.png" alt="Logo" style="height: 65px; object-fit: contain;">
+            </a>
+
+            <!-- เมนูนำทาง (active ที่ "ที่เที่ยว") -->
+            <nav class="d-flex flex-wrap justify-content-center align-items-center gap-2">
+                <a href="/" class="nav-pill-custom">หน้าแรก</a>
+                <a href="/page2" class="nav-pill-custom">ข้อมูลท่องเที่ยว</a>
+                <a href="/page3" class="nav-pill-custom active">ที่เที่ยว</a>
+                <a href="/page7" class="nav-pill-custom">ตัวอย่างทริป</a>
+                <a href="/page9" class="nav-pill-custom">คาเฟ่ ร้านอาหาร</a>
+                <a href="/hotels" class="nav-pill-custom">ที่พัก</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<!-- ส่วนหัวข้อหลัก "อยากไปที่ไหน?" และช่องค้นหา -->
+<section class="container text-center my-5">
+    <h1 class="fw-bold mb-4" style="font-size: 2.5rem; color: #1e293b;">
+        อยาก<span style="color: #f43f5e;">ไป</span>ที่ไหน?
+    </h1>
+
+    <div class="search-box-container d-flex align-items-center mb-5">
+        <input type="text" class="form-control border-0 shadow-none bg-transparent ps-2" placeholder="ค้นหาสถานที่ท่องเที่ยว คาเฟ่ ร้านอาหาร ที่พัก" style="font-size: 0.95rem;">
+        <i class="fas fa-search text-muted px-2"></i>
+    </div>
+
+    <!-- หัวข้อ "ที่เที่ยว" พร้อมเส้นคั่นซ้าย-ขวา -->
+    <div class="d-flex align-items-center justify-content-center my-4">
+        <hr class="flex-grow-1 m-0" style="border-top: 1px solid #d4a3a6;">
+        <h2 class="fw-bold px-4 m-0" style="color: #475569; font-size: 1.8rem;">ที่เที่ยว</h2>
+        <hr class="flex-grow-1 m-0" style="border-top: 1px solid #d4a3a6;">
+    </div>
+</section> 
+
+<!-- ส่วนรายการที่เที่ยว (Grid 4 คอลัมน์ ครบถ้วนตามภาพตัวอย่าง) -->
+<main class="container mb-5">
+    <div class="row g-4">
+        <!-- แถวที่ 1 (การ์ด 1-4) -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 39.png" alt="25 ที่เที่ยวตาก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Tak'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">25 ที่เที่ยวตาก ทั้งธรรมชาติสวย น้ำตกงาม</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 14/07/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 40.png" alt="อ่างเก็บน้ำเขาไม้ด้วง" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Prachinburi'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">อ่างเก็บน้ำเขาไม้ด้วง ปราจีนบุรี จุดเช็คอินลับ วิวก้อนหินแปลกตา</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 17/06/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 41.png" alt="15 วัดแพร่" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Phrae'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">15 วัดแพร่ ไหว้พระธาตุศักดิ์สิทธิ์ ชมศิลปะล้านนาสุดวิจิตร</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 23/06/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 42.png" alt="17 ที่เที่ยวสุโขทัย" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Sukhothai'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">17 ที่เที่ยวสุโขทัย อัปเดตล่าสุดพิกัดดัง วัดวา ธรรมชาติ วิถีชุมชน</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 21/06/2026</p>
+            </div>
+        </div>
+
+        <!-- แถวที่ 2 (การ์ด 5-8) -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 43.png" alt="ถ่ายรูปสระบุรี บ้านท่าฤทธิ์" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Lopburi'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">ถ่ายรูปณพะ บ้านท่าฤทธิ์ สระบุรี จุดชมวิวท้ายเขื่อนป่าสัก</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 01/07/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 44.png" alt="35 ที่เที่ยวนครนายก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Nakhonayok'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">35 ที่เที่ยวนครนายก เช็คอินธรรมชาติใกล้กรุง ไปเช้าเย็นกลับสบาย</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 16/06/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 45.png" alt="อุทยานประวัติศาสตร์พิมาย" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Korat'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">อุทยานประวัติศาสตร์พิมาย โคราช ชมปราสาทหินสุดอลังการ</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 18/05/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 46.png" alt="20 ที่เที่ยวหน้าฝน น่าน" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Nan'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">อัปเดต 20 ที่เที่ยวหน้าฝน 2026 สัมผัสความสีเขียว และ สายหมอก</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 17/05/2026</p>
+            </div>
+        </div>
+
+        <!-- แถวที่ 3 (การ์ด 9-12) -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 47.png" alt="สะพึง ไทรงาม พิมาย" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=SaiNgam'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">สะพึง ไทรงาม พิมาย ชมอุโมงค์ต้นไทรยักษ์ ถิ่นอีสานโคราช</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 17/05/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 48.png" alt="ตลาดน้ำตะเคียน" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Market'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">ตลาดผัวตะเฃรี ลัดเลาะชุมชนเก่าริมคลอง ปล่อยจอยเสพงานศิลป์</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 15/04/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 49.png" alt="The Old Town Ratchaburi" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Ratchaburi'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">The Old Town Ratchaburi ย้อนวันวานผ่านตึกเก่าแหล่งเช็คอินฟินใจกลางเมือง</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 10/04/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 50.png" alt="20 ที่เที่ยวน่าน" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Nan2'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">20 ที่เที่ยวน่าน 2026 เสน่ห์แห่งภูเขา ธรรมชาติ และวัฒนธรรม</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 01/04/2026</p>
+            </div>
+        </div>
+
+        <!-- แถวที่ 4 (การ์ด 13-16) -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 51.png" alt="วัดภูมินทร์" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Temple'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">วัดภูมินทร์ ชมภาพวาด ปู่ม่าน ย่าม่าน กระซิบรักบรรลือโลก</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 01/04/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 52.png" alt="ปัว น่าน" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Pua'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">ปัว น่าน 2026 รวม 15 ที่เที่ยวปัว พิกัดสีเขียว สายหมอกที่ทำให้ฟินหู</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 01/04/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 53.png" alt="กินเที่ยว เกาะเกร็ด" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">กิน เที่ยว รสแกะเกร็ด ร้านไหนเด็ด ปักหมุดคาเฟ่ศาลาลา</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 31/03/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 54.png" alt="25 ที่เที่ยวชุมพร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Chumphon'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">25 ที่เที่ยวชุมพร 2026 แจกพิกัดลับสวรรค์เมืองใต้</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 12/03/2026</p>
+            </div>
+        </div>
+
+        <!-- แถวที่ 5 (การ์ด 17-20) -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 55.png" alt="หาดปากบารา" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Pakbara'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">หาดปากบารา ซองที่มือต้องสตูล ที่ไม่อยากให้แค่ผ่าน</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 04/03/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 56.png" alt="เกาะขาม ตราด" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=KohKham'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เกาะขาม ตราด อินฟินฟิน ภูเขาไฟ กลางทะเลมรกตใส</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 26/02/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 57.png" alt="รวมมิตรเครดิตสายเที่ยว" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Travel'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">รวมมิตรเครดิตสายเที่ยว 2569 ไปไหนดี จองที่พัก - ตัวเครื่องบิน</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 25/02/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 58.png" alt="หาดทับแขก" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Tubkaek'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">หาดทับแขก พักผ่อนบนชายหาดเงียบสงบ ชมวิวเกาะสวย</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 24/02/2026</p>
+            </div>
+        </div>
+
+        <!-- แถวที่ 6 (การ์ด 21-24) -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 59.png" alt="บ้านเกาะเสียน" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=CafeChumphon'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">บ้านเกาะเสียน ที่พัก ร้านอาหารริมทะเล บรรยากาศชาวลุดอาร์ต</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 23/02/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 60.png" alt="เกาะไข่ ชุมพร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=KohKhai'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เกาะไข่ ชุมพร เกาะสวยไม่ไกลจากฝั่ง น้ำทะเลใสแจ๋ว</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 23/02/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 61.png" alt="ถ้ำเขาจูบกัน" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cave'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">ถ้ำเขาจูบกัน สามร้อยยอด ที่เที่ยว Unseen ถ่ายรูปสวยปัง</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 20/02/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 62.png" alt="เบญจนาคาบาน" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=FlowerField'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">เบญจนาคาบานในอำเภอเชตคาน วังน้ำเขียว 2589 ต้อนรับเดือนแห่งความรัก</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">ที่เที่ยว | 01/02/2026</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ส่วนหมายเลขเปลี่ยนหน้า (Pagination) ด้านล่างสุด -->
+    <div class="d-flex justify-content-center align-items-center gap-2 mt-5">
+        <a href="/page3" class="pagination-dots">1</a>
+        <a href="/page4" class="pagination-dots inactive">2</a>
+        <a href="/page5" class="pagination-dots inactive">3</a>
+        <a href="/page6" class="pagination-dots inactive">4</a>
+    </div>
+</main>
+
+<!-- Bootstrap 5 JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Footer Section -->
+<footer style="background-color: #e3f2fd; padding: 50px 0 0 0; font-family: 'Prompt', sans-serif;">
+    <div class="container mb-5">
+        <div class="row g-4 justify-content-between">
+            <!-- คอลัมน์ที่ 1: เกี่ยวกับเราและโซเชียลมีเดีย -->
+            <div class="col-lg-4 col-md-6">
+                <p class="text-dark mb-3" style="font-size: 0.95rem; line-height: 1.6;">
+                    เที่ยวกับฟ้า เว็บไซต์รวบรวมข้อมูลท่องเที่ยว<br>
+                    คาเฟ่ ร้านอาหาร ที่พัก
+                </p>
+                <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #0d6efd;">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #000;">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #d63384;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #212529;">
+                        <i class="fa-solid fa-xmark"></i>
+                    </a>
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #dc3545;">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- คอลัมน์ที่ 2: เมนูลัด -->
+            <div class="col-lg-3 col-md-6">
+                <ul class="list-unstyled d-flex flex-column gap-2 m-0" style="font-size: 0.95rem;">
+                    <li><a href="/" class="text-dark text-decoration-none">หน้าแรก</a></li>
+                    <li><a href="/page2" class="text-dark text-decoration-none">ข้อมูลท่องเที่ยว</a></li>
+                    <li><a href="/page3" class="text-dark text-decoration-none">ที่เที่ยว</a></li>
+                    <li><a href="/page9" class="text-dark text-decoration-none">คาเฟ่ ร้านอาหาร</a></li>
+                    <li><a href="/hotels" class="text-dark text-decoration-none">ที่พักทั่วไทย</a></li>
+                </ul>
+            </div>
+
+            <!-- คอลัมน์ที่ 3: ติดต่อโฆษณา -->
+            <div class="col-lg-4 col-md-6">
+                <p class="text-dark fw-semibold mb-2" style="font-size: 0.95rem;">ติดต่อโฆษณา :</p>
+                <p class="text-dark m-0" style="font-size: 0.95rem;">
+                    <i class="far fa-envelope me-2"></i> E - mail : teawkubfar.com@gmail.com
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- แถบแจ้งเตือนคุกกี้ด้านล่างสุด -->
+    <div style="background-color: #f8d7da; padding: 15px 0; border-top: 1px dashed #f5c2c7;">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 text-center text-md-start">
+            <p class="text-dark m-0" style="font-size: 0.85rem;">
+                teawkubfar.com ใช้คุกกี้บนเว็บไซต์นี้เพื่อเพิ่มประสิทธิภาพการใช้งานของท่าน โปรดตกลงใช้งานคุกกี้เพื่อใช้งานเว็บไซต์ต่อไป
+            </p>
+            <button class="btn btn-light btn-sm px-4 rounded-pill shadow-sm text-danger fw-semibold" style="font-size: 0.85rem;">ยอมรับ</button>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

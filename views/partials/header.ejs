@@ -1,0 +1,42 @@
+<!-- views/partials/header.ejs -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+<header class="pt-4 pb-2 animate__animated animate__fadeInDown" style="background-color: #f8d7da; border-bottom: 1px solid #f5c2c7;">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+        <a class="navbar-brand d-flex align-items-center" href="/">
+            <img src="/images/logo.png" alt="Logo" style="height: 65px; object-fit: contain;" onerror="this.style.display='none'">
+        </a>
+        <nav class="d-flex flex-wrap justify-content-center align-items-center gap-2">
+            <a href="/" class="nav-pill-custom <%= typeof activePage !== 'undefined' && activePage === 'home' ? 'active' : '' %>">หน้าแรก</a>
+            <a href="/page2" class="nav-pill-custom <%= typeof activePage !== 'undefined' && activePage === 'page2' ? 'active' : '' %>">ข้อมูลท่องเที่ยว</a>
+            <a href="/page3" class="nav-pill-custom <%= typeof activePage !== 'undefined' && activePage === 'page3' ? 'active' : '' %>">ที่เที่ยว</a>
+            <a href="/page7" class="nav-pill-custom <%= typeof activePage !== 'undefined' && activePage === 'trips' ? 'active' : '' %>">ตัวอย่างทริป</a>
+            <a href="/page9" class="nav-pill-custom <%= typeof activePage !== 'undefined' && activePage === 'cafes' ? 'active' : '' %>">คาเฟ่ ร้านอาหาร</a>
+            <a href="/page13" class="nav-pill-custom <%= typeof activePage !== 'undefined' && activePage === 'page13' ? 'active' : '' %>">ที่พัก</a>
+            <a href="/register" class="nav-pill-custom <%= typeof activePage !== 'undefined' && activePage === 'register' ? 'active' : '' %>">สมัครสมาชิก</a>
+        </nav>
+    </div>
+</header>
+
+<style>
+    .nav-pill-custom {
+        background-color: #e2e8f0;
+        color: #475569;
+        border-radius: 50px;
+        padding: 8px 20px;
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+
+    .nav-pill-custom.active {
+        background-color: #f43f5e;
+        color: #ffffff;
+        font-weight: 600;
+    }
+
+    .nav-pill-custom:hover {
+        background-color: #cbd5e1;
+        color: #1e293b;
+    }
+</style>

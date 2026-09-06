@@ -1,0 +1,353 @@
+<!-- views/page9.ejs -->
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= title %></title>
+
+<!-- Google Font: Prompt -->
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+<!-- Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- FontAwesome ไอคอน -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/css/style.css">
+
+<style>
+body {
+    font-family: 'Prompt', sans-serif;
+    background-color: #f8d7da;
+    margin: 0;
+}
+
+.search-box-container {
+    background-color: #ffffff;
+    border-radius: 50px;
+    padding: 8px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.attraction-card {
+    background: transparent;
+    border: none;
+    transition: transform 0.2s;
+}
+
+.attraction-card:hover {
+    transform: translateY(-5px);
+}
+
+.attraction-img {
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* สไตล์สำหรับปุ่ม Pagination */
+.pagination-dots {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background-color: #f43f5e;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.pagination-dots.inactive {
+    background-color: #ffffff;
+    color: #475569;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.pagination-dots.inactive:hover {
+    background-color: #e2e8f0;
+    color: #1e293b;
+}
+</style>
+</head>
+<body>
+
+<!-- เรียกใช้ Header ผ่าน Partial -->
+<%- include('partials/header', { activePage: 'cafes' }) %>
+
+<!-- ส่วนหัวข้อหลักและช่องค้นหา -->
+<section class="container text-center my-5">
+<h1 class="fw-bold mb-4" style="font-size: 2.5rem; color: #1e293b;">
+อยาก<span style="color: #f43f5e;">ไป</span>ที่ไหน?
+</h1>
+
+<div class="search-box-container d-flex align-items-center mb-5">
+<input type="text" class="form-control border-0 shadow-none bg-transparent ps-2" placeholder="ค้นหาสถานที่ท่องเที่ยว คาเฟ่ ร้านอาหาร ที่พัก" style="font-size: 0.95rem;">
+<i class="fas fa-search text-muted px-2"></i>
+</div>
+
+<div class="d-flex align-items-center justify-content-center my-4">
+<hr class="flex-grow-1 m-0" style="border-top: 1px solid #d4a3a6;">
+<h2 class="fw-bold px-4 m-0" style="color: #475569; font-size: 1.8rem;">คาเฟ่ <span style="color: #f43f5e;">ร้านอาหาร</span></h2>
+<hr class="flex-grow-1 m-0" style="border-top: 1px solid #d4a3a6;">
+</div>
+</section> 
+
+<!-- ส่วนรายการคาเฟ่และร้านอาหาร 24 การ์ด (6 แถว) -->
+<main class="container mb-5">
+    <div class="row g-4">
+<!-- แถวที่ 1 -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 184.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">15 คาเฟ่เขาค้อ เปิดใหม่ วิวสวย อัพเดท 2026</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 16/07/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 185.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">สวนบ้านใน หัวใจบ้านนอก คาเฟ่ลพบุรี บรรยากาศโฮมมี่ อาหารอร่อย</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 02/07/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 186.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">ชะหลู คาเฟ่ Chaplu Cafe หัวหินติดทะเล ฟิลเมืองนอก มุมถ่ายรูปเพียบ</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 31/03/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 187.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">12 คาเฟ่บางแสน ทั้งโซนติดทะเล เขาสามมุข ถ่ายรูปสุดปัง อัพเดท 2026</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 04/03/2026</p>
+            </div>
+        </div>
+
+        <!-- แถวที่ 2 -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 188.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">บ้านต้นไม้อวดชุม คาเฟ่ต้นไม้ ดีไซน์ล้ำริมทะเล จุดเช็คอินสุดชิคแห่งปะทิว ชุมพร</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 26/02/2026</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 189.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">คาเฟ่ทุเรียน แอนด์ นีโต คาเฟ่อาหารญี่ปุ่น ไทยฟิวชั่น ใกล้วัดพนัญเชิง</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 01/12/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 190.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">บ้านงามแสงเดือน คาเฟ่แม่ริม บ้านไม้สไตล์ล้านนา แบบมีดลสนิยม</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 17/11/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 191.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">9 ร้านอาหารเช้าเชียงใหม่ เติมความอร่อย ในร้านบรรยากาศน่ารัก</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 06/11/2025</p>
+            </div>
+        </div>
+
+        <!-- แถวที่ 3 -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 192.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">20 คาเฟ่นครนายก ดีไซน์สวยใกล้เขื่อน น้ำตกสาริกา</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 27/10/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 193.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">Little Morning คาเฟ่แม่ลาน้อย บนดอยขุนçำ วิวภูเขาพาโนรามา</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 04/10/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 194.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">8 คาเฟ่เชียงดาว 2026 ปักหมุดแลนด์มาร์ัก ถ่ายรูปสวยวิวดอยหลวงสุดปัง</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 23/09/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 195.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">Cornily Corn Farm เขาค้อ คาเฟ่ข้าวโพด สุดชิคท์ เมนูจากข้าวโพดแสนอร่อย</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 19/08/2025</p>
+            </div>
+        </div>
+
+<!-- แถวที่ 4 -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 196.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">หุ่นไร่กา พิษณุโลก คาเฟ่ทรงกล่องสุดเท่ ถ่ายรูปมุมไหนก็เป๊ะ</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 31/07/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 197.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">โรงบ่มปิว คาเฟ่ แอนด์ อีทเธอรี่ น่าน จากโรงบ่มยาสูบ สู่คาเฟ่สุดชิคที่ใครก็ต้องมา</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 07/07/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 198.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">3 คาเฟ่ศรีสัชนาลัย สุโขทัย บรรยากาศดี วิวโคนใจสายชิล</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 05/07/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 199.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">Pino Lotte Cafe ชมทะเลหมอก วิวพระธาตุผาซ่อนแก้ว</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 22/06/2025</p>
+            </div>
+        </div>
+
+        <!-- แถวที่ 5 -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 200.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">ไร่ชาวังพุดตาล เชียงราย จิบชาหอมกรุ่น ชมวิวภูเขา มุมถ่ายรูปปัง</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 21/06/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 201.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">ร้านผางลาง คาเฟ่บ้านไม้สุดชิล ใกล้สนามบินเชียงราย</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 17/04/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 202.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">บ้านแม่อร คาเฟ่ใกล้วัดป่าโมก ฟิลโฮมมี่ อาหารอร่อย</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 07/04/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 203.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">9 คาเฟ่บ้านฉาง รวมร้านเด็ด บรรยากาศโดนใจ เช็คอินมุมไหนก็ปัง</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 02/04/2025</p>
+            </div>
+        </div>
+
+        <!-- แถวที่ 6 -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 204.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">8 ร้านอาหารเบตง ร้านเด็ด คาเฟ่ดัง มาแล้วต้องลอง</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 10/03/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 205.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">Triple N บางแสน อรุณสวัสดิ์ริมทะเล จิบกาแฟรับลมยามเช้า</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 17/02/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 206.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">ญาณ หมาก คาเฟ่กลางสวนหมาก จิบกาแฟ ชิมขนมไทย ถ่ายรูปชมสวน</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 10/02/2025</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="attraction-card">
+                <img src="/images/Rectangle 207.png" alt="คาเฟ่และร้านอาหาร" class="attraction-img w-100 mb-2 shadow-sm" onerror="this.src='https://via.placeholder.com/300x180?text=Cafe'">
+                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.4;">Blue Sea สัตหีบ คาเฟ่ติดทะเล วิวหลักล้าน บนหาดทรายแก้ว</h6>
+                <p class="text-muted m-0" style="font-size: 0.8rem;">คาเฟ่ ร้านอาหาร | 07/02/2025</p>
+            </div>
+        </div>
+
+    <!-- ส่วนหมายเลขเปลี่ยนหน้า (Pagination) ด้านล่างสุด -->
+    <div class="d-flex justify-content-center align-items-center gap-2 mt-5">
+        <a href="/page9" class="pagination-dots">1</a>
+        <a href="/page10" class="pagination-dots inactive">2</a>
+        <a href="/page11" class="pagination-dots inactive">3</a>
+        <a href="/page12" class="pagination-dots inactive">4</a>
+    </div>
+</main>
+
+<!-- Bootstrap 5 JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Footer Section -->
+<footer style="background-color: #e3f2fd; padding: 50px 0 0 0; font-family: 'Prompt', sans-serif;">
+    <div class="container mb-5">
+        <div class="row g-4 justify-content-between">
+            <div class="col-lg-4 col-md-6">
+                <p class="text-dark mb-3" style="font-size: 0.95rem; line-height: 1.6;">
+                    เที่ยวกับฟ้า เว็บไซต์รวบรวมข้อมูลท่องเที่ยว<br>
+                    คาเฟ่ ร้านอาหาร ที่พัก
+                </p>
+                <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #0d6efd;">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #000;">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #d63384;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #212529;">
+                        <i class="fa-solid fa-xmark"></i>
+                    </a>
+                    <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #dc3545;">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <ul class="list-unstyled d-flex flex-column gap-2 m-0" style="font-size: 0.95rem;">
+                    <li><a href="/" class="text-dark text-decoration-none">หน้าแรก</a></li>
+                    <li><a href="/page2" class="text-dark text-decoration-none">ข้อมูลท่องเที่ยว</a></li>
+                    <li><a href="/page3" class="text-dark text-decoration-none">ที่เที่ยว</a></li>
+                    <li><a href="/page7" class="text-dark text-decoration-none">ตัวอย่างทริป</a></li>
+                    <li><a href="/page9" class="text-dark text-decoration-none">คาเฟ่ ร้านอาหาร</a></li>
+                    <li><a href="/page13" class="text-dark text-decoration-none">ที่พักทั่วไทย</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <p class="text-dark fw-semibold mb-2" style="font-size: 0.95rem;">ติดต่อโฆษณา :</p>
+                <p class="text-dark m-0" style="font-size: 0.95rem;">
+                    <i class="far fa-envelope me-2"></i> E - mail : teawkubfar.com@gmail.com
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div style="background-color: #f8d7da; padding: 15px 0; border-top: 1px dashed #f5c2c7;">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 text-center text-md-start">
+            <p class="text-dark m-0" style="font-size: 0.85rem;">
+                teawkubfar.com ใช้คุกกี้บนเว็บไซต์นี้เพื่อเพิ่มประสิทธิภาพการใช้งานของท่าน โปรดตกลงใช้งานคุกกี้เพื่อใช้งานเว็บไซต์ต่อไป
+            </p>
+            <button class="btn btn-light btn-sm px-4 rounded-pill shadow-sm text-danger fw-semibold" style="font-size: 0.85rem;">ยอมรับ</button>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,401 @@
+<!-- views/page2.ejs -->
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <!-- Google Font: Prompt -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome ไอคอน -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #e3f2fd; /* พื้นหลังสีฟ้าอ่อนทั้งหน้า */
+            margin: 0;
+        }
+        /* แถบสีชมพูส่วน Header */
+        .header-peach-bar {
+            background-color: #f8d7da;
+            padding: 15px 0;
+            border-bottom: 1px solid #f5c2c7;
+        }
+        /* ช่องค้นหา */
+        .search-box-container {
+            background-color: #ffffff;
+            border-radius: 50px;
+            padding: 8px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            max-width: 500px;
+            margin: 0 auto 20px auto;
+        }
+        /* สไตล์ปุ่มเมนู */
+        .nav-pill-custom {
+            background-color: #e2e8f0;
+            color: #475569;
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .nav-pill-custom.active {
+            background-color: #f43f5e;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        .nav-pill-custom:hover {
+            background-color: #cbd5e1;
+            color: #1e293b;
+        }
+        /* ปรับแต่งลิงก์จังหวัด */
+        .province-link {
+            color: #f43f5e;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .province-link:hover {
+            color: #e11d48;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ส่วน Header ด้านบนสุด -->
+    <header class="pt-4 pb-2">
+        <div class="container">
+            <!-- ช่องค้นหาตรงกลาง -->
+            <div class="search-box-container d-flex align-items-center">
+                <input type="text" class="form-control border-0 shadow-none bg-transparent ps-2" placeholder="ค้นหาสถานที่ท่องเที่ยว คาเฟ่ ร้านอาหาร ที่พัก" style="font-size: 0.9rem;">
+                <i class="fas fa-search text-muted px-2"></i>
+            </div>
+        </div>
+
+        <!-- แถบสีชมพูคาดยาวประกอบโลโก้และเมนู -->
+        <div class="header-peach-bar">
+            <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <!-- โลโก้เว็บไซต์ -->
+                <a class="navbar-brand d-flex align-items-center" href="/">
+                    <img src="/images/logo.png" alt="Logo" style="height: 65px; object-fit: contain;">
+                </a>
+
+                <!-- เมนูนำทาง -->
+                <nav class="d-flex flex-wrap justify-content-center align-items-center gap-2">
+                    <a href="/" class="nav-pill-custom">หน้าแรก</a>
+                    <a href="/page2" class="nav-pill-custom active">ข้อมูลท่องเที่ยว</a>
+                    <a href="/page3" class="nav-pill-custom">ที่เที่ยว</a>
+                    <a href="/page7" class="nav-pill-custom">ตัวอย่างทริป</a>
+                    <a href="/cafes" class="nav-pill-custom">คาเฟ่ ร้านอาหาร</a>
+                    <a href="/hotels" class="nav-pill-custom">ที่พัก</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- ส่วนเนื้อหาหลัก (Main Content) -->
+    <main class="container my-5">
+        <div class="row align-items-center justify-content-between mb-5">
+            <!-- ฝั่งซ้าย: หัวข้อหน้าและ Breadcrumb -->
+            <div class="col-md-6 mb-4 mb-md-0">
+                <h1 class="fw-bold text-dark display-5 mb-2">ข้อมูลท่องเที่ยว</h1>
+                <p class="text-muted m-0" style="font-size: 0.95rem;">
+                    <a href="/" class="text-decoration-none text-muted">หน้าแรก</a> / <span class="text-dark">ข้อมูลท่องเที่ยว</span>
+                </p>
+            </div>
+
+            <!-- ฝั่งขวา: รูปภาพแบนเนอร์พระอาทิตย์ตกริมทะเล -->
+            <div class="col-md-6 text-center text-md-end">
+                <div class="position-relative d-inline-block w-100" style="max-width: 550px;">
+                    <img src="/images/Rectangle 38.png" alt="ข้อมูลท่องเที่ยว ทะเลพระอาทิตย์ตก" class="img-fluid rounded-4 shadow-sm w-100" style="height: 280px; object-fit: cover;" onerror="this.src='https://via.placeholder.com/550x280?text=Sunset+Beach'">
+                </div>
+            </div>
+        </div>
+
+        <!-- ส่วนภาคเหนือ -->
+        <div class="row align-items-center my-5">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <img src="/images/Rectangle 17.png" alt="ภาคเหนือ ทะเลหมอก" class="img-fluid rounded-4 shadow-sm w-100" style="height: 250px; object-fit: cover;" onerror="this.src='https://via.placeholder.com/450x250?text=Northern+Foggy+Mountain'">
+            </div>
+            <div class="col-lg-7">
+                <h3 class="fw-bold pb-2 mb-3" style="color: #f43f5e; border-bottom: 2px solid #f43f5e;">ภาคเหนือ</h3>
+                <div class="row">
+                    <div class="col-6 col-md-3 mb-2">
+                        <ul class="list-unstyled m-0 d-flex flex-column gap-2" style="font-size: 0.95rem;">
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> กำแพงเพชร</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> เชียงราย</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> เชียงใหม่</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> นครสวรรค์</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ตาก</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-3 mb-2">
+                        <ul class="list-unstyled m-0 d-flex flex-column gap-2" style="font-size: 0.95rem;">
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> น่าน</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> พะเยา</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> พิจิตร</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> พิษณุโลก</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> เพชรบูรณ์</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-3 mb-2">
+                        <ul class="list-unstyled m-0 d-flex flex-column gap-2" style="font-size: 0.95rem;">
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> แพร่</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> แม่ฮ่องสอน</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ลำปาง</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ลำพูน</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> สุโขทัย</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-3 mb-2">
+                        <ul class="list-unstyled m-0 d-flex flex-column gap-2" style="font-size: 0.95rem;">
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> อุตรดิตถ์</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> อุทัยธานี</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr style="border-top: 2px dashed #f43f5e; opacity: 0.4; margin: 40px 0;">
+
+        <!-- ส่วนภาคกลาง -->
+        <div class="row align-items-center my-5">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <img src="/images/Rectangle 18.png" alt="ภาคกลาง วัดพระแก้ว" class="img-fluid rounded-4 shadow-sm w-100" style="height: 250px; object-fit: cover;" onerror="this.src='https://via.placeholder.com/450x250?text=Central+Temple'">
+            </div>
+            <div class="col-lg-7">
+                <h3 class="fw-bold pb-2 mb-3" style="color: #f43f5e; border-bottom: 2px solid #f43f5e;">ภาคกลาง</h3>
+                <div class="row">
+                    <div class="col-6 col-md-3 mb-2">
+                        <ul class="list-unstyled m-0 d-flex flex-column gap-2" style="font-size: 0.95rem;">
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> กรุงเทพมหานคร</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> กาญจนบุรี</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ฉะเชิงเทรา</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ชัยนาท</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> นครนายก</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-3 mb-2">
+                        <ul class="list-unstyled m-0 d-flex flex-column gap-2" style="font-size: 0.95rem;">
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> นครปฐม</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> นนทบุรี</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ปทุมธานี</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> อยุธยา</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> เพชรบุรี</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-3 mb-2">
+                        <ul class="list-unstyled m-0 d-flex flex-column gap-2" style="font-size: 0.95rem;">
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ราชบุรี</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ลพบุรี</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> สมุทรปราการ</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> สมุทรสงคราม</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> สมุทรสาคร</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-3 mb-2">
+                        <ul class="list-unstyled m-0 d-flex flex-column gap-2" style="font-size: 0.95rem;">
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> สระบุรี</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> สิงห์บุรี</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> สุพรรณบุรี</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> อ่างทอง</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ประจวบคีรีขันธ์</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr style="border-top: 2px dashed #f43f5e; opacity: 0.4; margin: 40px 0;">
+
+        <!-- ส่วนภาคตะวันออกเฉียงเหนือ -->
+        <div class="row align-items-center my-5">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <img src="/images/Rectangle 19.png" alt="ภาคตะวันออกเฉียงเหนือ สามพันโบก" class="img-fluid rounded-4 shadow-sm w-100" style="height: 250px; object-fit: cover;" onerror="this.src='https://via.placeholder.com/450x250?text=Northeast+Canyon'">
+            </div>
+            <div class="col-lg-7">
+                <h3 class="fw-bold pb-2 mb-3" style="color: #f43f5e; border-bottom: 2px solid #f43f5e;">ภาคตะวันออกเฉียงเหนือ</h3>
+                <div class="row">
+                    <div class="col-6 col-md-3 mb-2">
+                        <ul class="list-unstyled m-0 d-flex flex-column gap-2" style="font-size: 0.95rem;">
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> กาฬสินธุ์</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ขอนแก่น</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ชัยภูมิ</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> นครพนม</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> นครราชสีมา</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-3 mb-2">
+                        <ul class="list-unstyled m-0 d-flex flex-column gap-2" style="font-size: 0.95rem;">
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> บุรีรัมย์</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> บึงกาฬ</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> มหาสารคาม</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> มุกดาหาร</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ยโสธร</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-3 mb-2">
+                        <ul class="list-unstyled m-0 d-flex flex-column gap-2" style="font-size: 0.95rem;">
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ร้อยเอ็ด</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> เลย</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ศรีสะเกษ</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> สกลนคร</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> สุรินทร์</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-3 mb-2">
+                        <ul class="list-unstyled m-0 d-flex flex-column gap-2" style="font-size: 0.95rem;">
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> หนองคาย</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> หนองบัวลำภู</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> อำนาจเจริญ</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> อุดรธานี</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> อุบลราชธานี</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr style="border-top: 2px dashed #f43f5e; opacity: 0.4; margin: 40px 0;">
+
+        <!-- ส่วนภาคตะวันออก -->
+        <div class="row align-items-center my-5">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <img src="/images/Rectangle 20.png" alt="ภาคตะวันออก สะพานท่าเรือ" class="img-fluid rounded-4 shadow-sm w-100" style="height: 250px; object-fit: cover;" onerror="this.src='https://via.placeholder.com/450x250?text=Eastern+Pier'">
+            </div>
+            <div class="col-lg-7">
+                <h3 class="fw-bold pb-2 mb-3" style="color: #f43f5e; border-bottom: 2px solid #f43f5e;">ภาคตะวันออก</h3>
+                <div class="row">
+                    <div class="col-6 col-md-3 mb-2">
+                        <ul class="list-unstyled m-0 d-flex flex-column gap-2" style="font-size: 0.95rem;">
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> จันทบุรี</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ชลบุรี</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ตราด</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ระยอง</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> สระแก้ว</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-3 mb-2">
+                        <ul class="list-unstyled m-0 d-flex flex-column gap-2" style="font-size: 0.95rem;">
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ปราจีนบุรี</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr style="border-top: 2px dashed #f43f5e; opacity: 0.4; margin: 40px 0;">
+
+        <!-- ส่วนภาคใต้ -->
+        <div class="row align-items-center my-5">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <img src="/images/Rectangle 21.png" alt="ภาคใต้ ทะเลเกาะ" class="img-fluid rounded-4 shadow-sm w-100" style="height: 250px; object-fit: cover;" onerror="this.src='https://via.placeholder.com/450x250?text=Southern+Sea'">
+            </div>
+            <div class="col-lg-7">
+                <h3 class="fw-bold pb-2 mb-3" style="color: #f43f5e; border-bottom: 2px solid #f43f5e;">ภาคใต้</h3>
+                <div class="row">
+                    <div class="col-6 col-md-4 mb-2">
+                        <ul class="list-unstyled m-0 d-flex flex-column gap-2" style="font-size: 0.95rem;">
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ชุมพร</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> สุราษฎร์ธานี</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> นครศรีธรรมราช</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> สงขลา</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ตรัง</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-4 mb-2">
+                        <ul class="list-unstyled m-0 d-flex flex-column gap-2" style="font-size: 0.95rem;">
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ระนอง</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> กระบี่</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> พังงา</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ภูเก็ต</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> สตูล</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-4 mb-2">
+                        <ul class="list-unstyled m-0 d-flex flex-column gap-2" style="font-size: 0.95rem;">
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> พัทลุง</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ปัตตานี</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> ยะลา</a></li>
+                            <li><a href="#" class="province-link"><i class="fas fa-chevron-right fa-xs me-1"></i> นราธิวาส</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr style="border-top: 2px dashed #f43f5e; opacity: 0.4; margin: 40px 0;">
+    </main>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Footer Section -->
+    <footer style="background-color: #e3f2fd; padding: 50px 0 0 0; font-family: 'Prompt', sans-serif;">
+        <div class="container mb-5">
+            <div class="row g-4 justify-content-between">
+                <!-- คอลัมน์ที่ 1: เกี่ยวกับเราและโซเชียลมีเดีย -->
+                <div class="col-lg-4 col-md-6">
+                    <p class="text-dark mb-3" style="font-size: 0.95rem; line-height: 1.6;">
+                        เที่ยวกับฟ้า เว็บไซต์รวบรวมข้อมูลท่องเที่ยว<br>
+                        คาเฟ่ ร้านอาหาร ที่พัก
+                    </p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #0d6efd;">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #000;">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #d63384;">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #212529;">
+                            <i class="fa-solid fa-xmark"></i>
+                        </a>
+                        <a href="#" class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; color: #dc3545;">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- คอลัมน์ที่ 2: เมนูลัด -->
+                <div class="col-lg-3 col-md-6">
+                    <ul class="list-unstyled d-flex flex-column gap-2 m-0" style="font-size: 0.95rem;">
+                        <li><a href="/" class="text-dark text-decoration-none">หน้าแรก</a></li>
+                        <li><a href="/page2" class="text-dark text-decoration-none">ข้อมูลท่องเที่ยว</a></li>
+                        <li><a href="/page3" class="text-dark text-decoration-none">ที่เที่ยว</a></li>
+                        <li><a href="/page7" class="text-dark text-decoration-none">ตัวอย่างทริป</a></li>
+                        <li><a href="/cafes" class="text-dark text-decoration-none">คาเฟ่ ร้านอาหาร</a></li>
+                        <li><a href="/hotels" class="text-dark text-decoration-none">ที่พักทั่วไทย</a></li>
+                    </ul>
+                </div>
+
+                <!-- คอลัมน์ที่ 3: ติดต่อโฆษณา -->
+                <div class="col-lg-4 col-md-6">
+                    <p class="text-dark fw-semibold mb-2" style="font-size: 0.95rem;">ติดต่อโฆษณา :</p>
+                    <p class="text-dark m-0" style="font-size: 0.95rem;">
+                        <i class="far fa-envelope me-2"></i> E - mail : teawkubfar.com@gmail.com
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- แถบแจ้งเตือนคุกกี้ด้านล่างสุด -->
+        <div style="background-color: #f8d7da; padding: 15px 0; border-top: 1px dashed #f5c2c7;">
+            <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 text-center text-md-start">
+                <p class="text-dark m-0" style="font-size: 0.85rem;">
+                    teawkubfar.com ใช้คุกกี้บนเว็บไซต์นี้เพื่อเพิ่มประสิทธิภาพการใช้งานของท่าน โปรดตกลงใช้งานคุกกี้เพื่อใช้งานเว็บไซต์ต่อไป
+                </p>
+                <button class="btn btn-light btn-sm px-4 rounded-pill shadow-sm text-danger fw-semibold" style="font-size: 0.85rem;">ยอมรับ</button>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
