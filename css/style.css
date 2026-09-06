@@ -1,0 +1,136 @@
+/* ตั้งค่าพื้นฐาน */
+body {
+    font-family: 'Prompt', sans-serif;
+    background-color: #e0f2fe; /* ฟ้าอ่อนพาสเทล */
+    color: #334155;
+    overflow-x: hidden;
+}
+
+/* ช่องค้นหา */
+.search-container {
+    background: #ffffff;
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(14, 116, 144, 0.08);
+    border: 2px solid #fbcfe8; /* ขอบชมพูพาสเทลจางๆ */
+    transition: all 0.3s ease;
+}
+
+.search-container:focus-within {
+    box-shadow: 0 10px 25px rgba(14, 116, 144, 0.15);
+    border-color: #f472b6;
+}
+
+.search-btn {
+    background-color: #fed7aa; /* สีพีชพาสเทล */
+    color: #9a3412;
+    border-radius: 50px;
+    transition: all 0.2s ease;
+}
+
+.search-btn:hover {
+    background-color: #fb923c;
+    color: #ffffff;
+}
+
+/* ส่วนบทความไฮไลท์ ขยายเต็มหน้าจอ */
+.highlight-section {
+    background-color: #ffe4e6; /* ชมพูอ่อนพาสเทล */
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 60px 0;
+    margin-top: 60px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.section-title {
+    position: relative;
+    text-align: center;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 40px;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: #fbcfe8;
+    border-radius: 2px;
+}
+
+/* การ์ดบทความ / การ์ดที่พัก */
+.article-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 100%;
+    border: none;
+}
+
+.article-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+}
+
+.article-card img {
+    transition: transform 0.5s ease;
+}
+
+.article-card:hover img {
+    transform: scale(1.05); /* เพิ่มลูกเล่นซูมรูปภาพเบาๆ เมื่อเอาเมาส์ชี้ */
+}
+
+/* ปุ่มสไตล์พีช */
+.btn-custom-peach {
+    background-color: #fed7aa;
+    color: #9a3412;
+    border-radius: 50px;
+    padding: 8px 25px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.btn-custom-peach:hover {
+    background-color: #fb923c;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(251, 146, 60, 0.3);
+}
+
+/* สไตล์การ์ดข้อมูลท่องเที่ยว ภูมิภาค (ชื่อทับบนภาพ) */
+.region-card {
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.region-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2) !important;
+}
+
+.region-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6)); /* ไล่ระดับสีให้สวยและอ่านตัวหนังสือชัดขึ้น */
+    transition: background 0.3s ease;
+}
+
+.region-card:hover .region-overlay {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.7));
+}
